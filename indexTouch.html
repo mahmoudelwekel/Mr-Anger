@@ -10,8 +10,8 @@
     body{
         margin:0px;
         overflow: hidden;
-
-
+        height:100vh;
+        max-height:100vh;
     }
 canvas {
     border:1px solid #d3d3d3;
@@ -45,14 +45,15 @@ var myGameArea = {
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
         window.addEventListener('touchmove', function (e) {
-            myGameArea.x = e.touches[0].screenX;
-            myGameArea.y = e.touches[0].screenY;
+            myGameArea.x = e.touches[0].screenX-200  ;
+            myGameArea.y = e.touches[0].screenY-200;
         })
         },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
-    stop : function() {
+    stop: function () {
+        alert(myScore.text);
         clearInterval(this.interval);
     }
 }
